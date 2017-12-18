@@ -26,6 +26,12 @@
 								
         var dept_list3 = ["資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系","資電不分系榮譽班"];
 		
+		$("#college_list").append("<option>--College--</option>");
+			
+			for(var i = 0; i < college.length; i++){
+				$("#college_list").append("<option value =" +i+ ">" + college[i]+ "</option>");
+				}
+			
 		$("#department_list").append("<option>--Department--</option>");
 			
 			for(var i = 0; i < dept_list0.length; i++){
@@ -119,11 +125,6 @@
 
 	<h2>Please select your college:</h2> 
         <select id = "college_list">
-			<option>--College--</option>
-			<option>商學院</option>
-			<option>金融學院</option>
-			<option>工學院</option>
-			<option>資電學院</option>
 		</select> 
 		
 		
