@@ -12,86 +12,100 @@
 
   <script> 
 
-   $(document).ready(function(){ 
-
-    $("#college_list").change(function(){ 
+   $(document).ready(function(){
+   
+		var college = ["商學院","金融學院","工學院","資電學院"]; 
+		
+        var dept_list0 = ["會計學系","國際經營與貿易學系","財稅學系","合作經濟暨社會事業經營學系","統計學系","經濟學系","企業管理學系","行銷學系" 
+                                ,"商學進修學士學位學程 ","財經法律研究所","科技管理碩士學位學程" 
+                                ,"產業碩士專班","商學專業碩士在職學位學程"]; 
+								
+        var dept_list1 = ["風險管理與保險學系","財務金融學系","財務工程與精算學士學位學程","金融碩士在職學位學程","金融博士學位學程"]; 
+        var dept_list2 = ["機械與電腦輔助工程學系","纖維與複合材料學系","工業工程與系統管理學系","化學工程學系","航太與系統工程學系" 
+                                ,"精密系統設計學士學位學程"]; 
+								
+        var dept_list3 = ["資訊工程學系","電機工程學系","電子工程學系","自動控制工程學系","通訊工程學系","資電不分系榮譽班"];
+		
+		$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list0.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list0[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list1.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list1[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list2.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list2[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list3.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list3[i]+ "</option>");
+				}
+			$("#department_list").append("</select>");
+		
+		$("#college_list").change(function(){ 
+		
+		
 		$("#department_list").remove();
+		
 		$("#div1").append('<select id = "department_list">');
-		if($("#college_list  option:selected").text()=="商學院"){
-			$("#department_list").append("<option>--Department--</option>",
-							"<option>會計學系</option>",
-							"<option>國際經營與貿易學系</option>",
-							"<option>財稅學系</option>",
-							"<option>合作經濟暨社會事業經營學系</option>",
-							"<option>統計學系</option>",
-							"<option>經濟學系</option>",
-							"<option>企業管理學系</option>",
-							"<option>行銷學系</option>",
-							"<option>商學進修學士學位學程</option>",
-							"<option>財經法律研究所</option>",
-							"<option>科技管理碩士學位學程</option>",
-							"<option>產業碩士專班</option>",
-							"<option>商學專業碩士在職學位學程</option></select>");
-		}
-		else if($("#college_list option:selected").text()=="金融學院"){
-			$("#department_list").append("<option>--Department--</option>",
-							"<option>風險管理與保險學系</option>",
-							"<option>財務金融學系</option>",
-							"<option>財務工程與精算學士學位學程</option>",
-							"<option>金融碩士在職學位學程</option>",
-							"<option>金融博士學位學程</option></select>");
-		}
-		else if($("#college_list option:selected").text()=="工學院"){
-			$("#department_list").append("<option>--Department--</option>",
-							"<option>機械與電腦輔助工程學系</option>",
-							"<option>纖維與複合材料學系</option>",
-							"<option>工業工程與系統管理學系</option>",
-							"<option>化學工程學系</option>",
-							"<option>航太與系統工程學系</option>",
-							"<option>精密系統設計學士學位學程</option></select>");
-		}
-		else if($("#college_list option:selected").text()=="資電學院"){
-			$("#department_list").append("<option>--Department--</option>",
-							"<option>資訊工程學系</option>",
-							"<option>電機工程學系</option>",
-							"<option>電子工程學系</option>",
-							"<option>自動控制工程學系</option>",
-							"<option>通訊工程學系</option>",
-							"<option>資電不分系榮譽班</option></select>");
-		}
+		
+		var selected = $("#college_list option:selected").text();
+		
+		console.log(selected);
+		
+		if(selected=="商學院"){
+			$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list0.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list0[i]+ "</option>");
+				}
+			
+			$("#department_list").append("</select>");
+			}				
+		else if(selected=="金融學院"){
+			$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list1.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list1[i]+ "</option>");
+				}
+			
+			$("#department_list").append("</select>");
+			}
+		
+		else if(selected=="工學院"){
+			$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list2.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list2[i]+ "</option>");
+				}
+			
+			$("#department_list").append("</select>");
+			}
+		else if(selected=="資電學院"){
+			$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list3.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list3[i]+ "</option>");
+				}
+			
+			$("#department_list").append("</select>");
+			}
 		else{
-			$("#department_list").append("<option>--Department--</option>",
-							"<option>會計學系</option>",
-							"<option>國際經營與貿易學系</option>",
-							"<option>財稅學系</option>",
-							"<option>資合作經濟暨社會事業經營學系</option>",
-							"<option>統計學系</option>",
-							"<option>經濟學系</option>",
-							"<option>企業管理學系</option>",
-							"<option>行銷學系</option>",
-							"<option>商學進修學士學位學程</option>",
-							"<option>財經法律研究所</option>",
-							"<option>科技管理碩士學位學程</option>",
-							"<option>產業碩士專班</option>",
-							"<option>商學專業碩士在職學位學程</option>",
-							"<option>風險管理與保險學系</option>",
-							"<option>財務金融學系</option>",
-							"<option>財務工程與精算學士學位學程</option>",
-							"<option>金融碩士在職學位學程</option>",
-							"<option>金融博士學位學程</option>",
-							"<option>abc</option>",
-							"<option>機械與電腦輔助工程學系</option>",
-							"<option>纖維與複合材料學系</option>",
-							"<option>工業工程與系統管理學系</option>",
-							"<option>化學工程學系</option>",
-							"<option>航太與系統工程學系</option>",
-							"<option>精密系統設計學士學位學程</option>",
-							"<option>資訊工程學系</option>",
-							"<option>電機工程學系</option>",
-							"<option>電子工程學系</option>",
-							"<option>自動控制工程學系</option>",
-							"<option>通訊工程學系</option>",
-							"<option>資電不分系榮譽班</option></select>");
+			$("#department_list").append("<option>--Department--</option>");
+			
+			for(var i = 0; i < dept_list0.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list0[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list1.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list1[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list2.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list2[i]+ "</option>");
+				}
+			for(var i = 0; i < dept_list3.length; i++){
+				$("#department_list").append("<option value =" +i+ ">" + dept_list3[i]+ "</option>");
+				}
+			$("#department_list").append("</select>");
 		}
     });  
 
@@ -116,64 +130,9 @@
     <h2>Please select your department:</h2> 
 		<div id="div1">
 			<select id = "department_list">
-			<option>--Department--</option>
-			<option>會計學系</option>
-			<option>國際經營與貿易學系</option>
-			<option>財稅學系</option>
-			<option>資合作經濟暨社會事業經營學系</option>
-			<option>統計學系</option>
-			<option>經濟學系</option>
-			<option>企業管理學系</option>
-			<option>行銷學系</option>
-			<option>商學進修學士學位學程</option>
-			<option>財經法律研究所</option>
-			<option>科技管理碩士學位學程</option>
-			<option>產業碩士專班</option>
-			<option>商學專業碩士在職學位學程</option>
-			<option>風險管理與保險學系</option>
-			<option>財務金融學系</option>
-			<option>財務工程與精算學士學位學程</option>
-			<option>金融碩士在職學位學程</option>
-			<option>金融博士學位學程</option>
-			<option>abc</option>
-			<option>機械與電腦輔助工程學系</option>
-			<option>纖維與複合材料學系</option>
-			<option>工業工程與系統管理學系</option>
-			<option>化學工程學系</option>
-			<option>航太與系統工程學系</option>
-			<option>精密系統設計學士學位學程</option>
-			<option>資訊工程學系</option>
-			<option>電機工程學系</option>
-			<option>電子工程學系</option>
-			<option>自動控制工程學系</option>
-			<option>通訊工程學系</option>
-			<option>資電不分系榮譽班</option>
-			
-		</select>
+			</select>
 		</div>
-
+		
+		
  </body> 
-
- <!-- 
-
- document.write("Welcome to my page."); 
-
- $("button#1").click(function(){ 
-
-  $(".abc").hide(); 
-
-  }); 
-
- $("button#2").click(function(){ 
-
-  $(".abc").show(); 
-
-  }); 
-
- <button id="1">Click me to Hide!</button> 
-
- <button id="2">Click me to Show!</button> 
-
- --> 
-
 </html> 
